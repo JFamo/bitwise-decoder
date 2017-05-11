@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<body> 
+
+<h1>Bitwise XOR Decryptor</h1>
+<p id="demo">-output-</p>
+
+<form>
+  Encoded Hexidecimal Values (Seperated by Spaces):<br>
+  <input type="text" name="ans1" id="ans1"><br>
+</form>
+
+<button type="button" onclick="TranslateAnswer()">Decode</button>
+
+<script>
+function TranslateAnswer()
+	{
+  	var bigString = document.getElementById("ans1").value;
+    var pop = bigString.split(" ");
+    var answerIndex = 0;
+		var	value;
+		var	newString;
+		var	code;
+		var	i;
+    var finalString = "";
+    
+    for(var loopPop=0; loopPop<pop.length;loopPop++){
+   		
+      var s = pop[loopPop];
+      answerIndex = loopPop;
+
+      value = (answerIndex % 31) + 1;
+      newString = "";
+      for (i=0; i < s.length; i += 2) {
+        code = parseInt(s.substring(i, i + 2), 16);
+        newString += String.fromCharCode(code ^ value);
+      }
+		
+    	finalString = finalString + " " + newString;
+		}
+		document.getElementById("demo").innerHTML = finalString;
+    
+	}
+</script>
+
+</body>
