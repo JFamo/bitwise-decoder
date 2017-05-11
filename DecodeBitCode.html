@@ -2,6 +2,7 @@
 <body> 
 
 <h1>Bitwise XOR Decryptor</h1>
+<h2>by J.Famous</h2>
 <p id="demo">-output-</p>
 
 <form>
@@ -9,10 +10,10 @@
   <input type="text" name="ans1" id="ans1"><br>
 </form>
 
-<button type="button" onclick="TranslateAnswer()">Decode</button>
+<button type="button" onclick="DecryptHex()">Decode</button>
 
 <script>
-function TranslateAnswer()
+function DecryptHex()
 	{
   	var bigString = document.getElementById("ans1").value;
     var pop = bigString.split(" ");
