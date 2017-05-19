@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <body> 
 
+// This program is the intellectual property of J.Famous 2017
+// It will decode a string encoded using the Bitwise XOR operator
+// Some variables in this program are assumed, but can be replaced as necessary
+
 <h1>Bitwise XOR Decryptor</h1>
 <h2>by J.Famous</h2>
 <p id="demo">-output-</p>
@@ -10,14 +14,12 @@
   <input type="text" name="ans1" id="ans1"><br>
 </form>
 
-<button type="button" onclick="DecryptHex()">Decode</button>
+<button type="button" onclick="BreakInput()">Decode</button>
 
 <script>
-function DecryptHex()
+function DecryptHex(pop)
 	{
-  	var bigString = document.getElementById("ans1").value;
-    var pop = bigString.split(" ");
-    var answerIndex = 0;
+    	var answerIndex = 0;
 		var	value;
 		var	newString;
 		var	code;
@@ -41,6 +43,17 @@ function DecryptHex()
 		document.getElementById("demo").innerHTML = finalString;
     
 	}
+
+function BreakInput(){
+	var bigString = document.getElementById("ans1").value;
+	var inpArray = [];
+	while(bigString.indexOf("] = '") != -1){
+		var subStr = bigString.substring( bigString.indexOf("] = '") + 5 , bigString.indexOf("] = '") + 7 );
+		inpArray.push(subStr);
+		bigString = bigString.replace( bigString.substring( bigString.indexOf("] = '"), bigString.indexOf("] = '")+8 ) ,"");
+	}
+	DecryptHex(inpArray);
+}
 </script>
 
 </body>
