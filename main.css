@@ -1,1 +1,18 @@
+h1{
+  color: #6480ef;
+	font-weight: bold;
+	font-size: 40px;
+	letter-spacing: 2px;
+	position: relative;
+	float: left;
+	font-family:tahoma;
+}
 
+h2{
+  color: #95aaf9;
+	font-size: 30px;
+	letter-spacing: 1.5px;
+	position: relative;
+	float: left;
+	font-family:tahoma;
+}
