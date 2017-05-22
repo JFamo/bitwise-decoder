@@ -25,8 +25,10 @@ function DecryptHex(pop)
     
 	}
 
-function BreakInput(){
-	var bigString = document.getElementById("ans1").value;
+function BreakInput(bigString){
+	if(bigString.equals("")){
+		bigString = document.getElementById("ans1").value;
+	}
 	var inpArray = [];
 	while(bigString.indexOf("] = '") != -1){
 		var subStr = bigString.substring( bigString.indexOf("] = '") + 5 , bigString.indexOf("] = '") + 7 );
@@ -35,3 +37,24 @@ function BreakInput(){
 	}
 	DecryptHex(inpArray);
 }
+
+document.forms['myform'].elements['myfile'].onchange = function(evt) {
+	window.alert("changed!");
+    if(!window.FileReader) return; // Browser is not compatible
+
+    var reader = new FileReader();
+
+    reader.onload = function(evt) {
+        if(evt.target.readyState != 2) return;
+        if(evt.target.error) {
+            alert('Error while reading file');
+            return;
+        }
+
+        filecontent = evt.target.result;
+
+        document.forms['myform'].elements['text'].value = evt.target.result;
+    };
+
+    reader.readAsText(evt.target.files[0]);
+};
