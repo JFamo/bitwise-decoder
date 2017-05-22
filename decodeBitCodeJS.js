@@ -1,5 +1,4 @@
-function DecryptHex(pop)
-	{
+function decryptHex(pop){
     	var answerIndex = 0;
 		var	value;
 		var	newString;
@@ -19,42 +18,27 @@ function DecryptHex(pop)
         newString += String.fromCharCode(code ^ value);
       }
 		
-    	finalString = finalString + " " + newString;
-		}
-		document.getElementById("demo").innerHTML = finalString;
+   	finalString = finalString + " " + newString;
+	}
+	document.getElementById("demo").innerHTML = finalString;
     
-	}
-
-function BreakInput(bigString){
-	if(bigString.equals("")){
-		bigString = document.getElementById("ans1").value;
-	}
-	var inpArray = [];
-	while(bigString.indexOf("] = '") != -1){
-		var subStr = bigString.substring( bigString.indexOf("] = '") + 5 , bigString.indexOf("] = '") + 7 );
-		inpArray.push(subStr);
-		bigString = bigString.replace( bigString.substring( bigString.indexOf("] = '"), bigString.indexOf("] = '")+8 ) ,"");
-	}
-	DecryptHex(inpArray);
 }
 
-document.forms['myform'].elements['myfile'].onchange = function(evt) {
-	window.alert("changed!");
-    if(!window.FileReader) return; // Browser is not compatible
+function breakInput(){
+	bigString = document.getElementById("ans1").value;
 
-    var reader = new FileReader();
+	if(bigString.indexOf("] = '") == -1){
+		var splitArray = bigString.split(" ");
+		decryptHex(splitArray);
+	}
 
-    reader.onload = function(evt) {
-        if(evt.target.readyState != 2) return;
-        if(evt.target.error) {
-            alert('Error while reading file');
-            return;
-        }
-
-        filecontent = evt.target.result;
-
-        document.forms['myform'].elements['text'].value = evt.target.result;
-    };
-
-    reader.readAsText(evt.target.files[0]);
-};
+	else{
+		var inpArray = [];
+		while(bigString.indexOf("] = '") != -1){
+			var subStr = bigString.substring( bigString.indexOf("] = '") + 5 , bigString.indexOf("] = '") + 7 );
+			inpArray.push(subStr);
+			bigString = bigString.replace( bigString.substring( bigString.indexOf("] = '"), bigString.indexOf("] = '")+8 ) ,"");
+		}
+		decryptHex(inpArray);
+	}
+}
