@@ -57,7 +57,7 @@ function encryptHex(content, key){
       var currentWord = content[loop];
       wordOutput = "";
 
-      value = parseInt(key.substring(q, q + 2), 16);
+      value = parseInt(key.substring(q, q + 2), 2);
       /*if(q >= key.length){
         q = 0;
       }
@@ -67,7 +67,7 @@ function encryptHex(content, key){
 
       for (i = 0; i < currentWord.length; i += 2) {
 
-        var code = parseInt(currentWord.substring(i, i + 2), 16);
+        var code = parseInt(currentWord.substring(i, i + 2), 2);
         wordOutput += String.fromCharCode(code ^ value);
 
       }
