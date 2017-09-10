@@ -39,10 +39,36 @@ function decryptHex(pop){
         newString += String.fromCharCode(code ^ value);
       }
 		
+    document.getElementById("demo").innerHTML = "v:"+value+" c:"+code;
    	finalString = finalString + " " + newString;
 	}
-	document.getElementById("demo").innerHTML = finalString;
+	//document.getElementById("demo").innerHTML = finalString;
     
+}
+
+function encryptHex(content, key){
+
+    var finalOutput = "";
+    var wordOutput;
+
+    for(var loop = 0; loop < content.length; loop++){
+
+      var currentWord = content[loop];
+      wordOutput = "";
+
+      for (i=0; i < s.length; i += 2) {
+
+        code = parseInt(s.substring(i, i + 2), 16);
+        wordOutput += String.fromCharCode(code ^ value);
+
+      }
+
+      finalOutput = finalOutput + " " + wordOutput;
+  
+    }
+
+    document.getElementById("demo").innerHTML = finalOutput;
+
 }
 
 //break it down now y'all
@@ -65,6 +91,8 @@ function breakInput(){
 }
 
 function encodeInput(){
-  userContent = document.getElementById("ans1").value;
-  userPass = document.getElementById("ans2").value;
+  var userContent = document.getElementById("ans1").value;
+  var userPass = document.getElementById("userPass").value;
+  var splitArray = userContent.split(" ");
+  decryptHex(splitArray, userPass);
 }
