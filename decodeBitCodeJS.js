@@ -39,10 +39,9 @@ function decryptHex(pop){
         newString += String.fromCharCode(code ^ value);
       }
 		
-    document.getElementById("demo").innerHTML = "v:"+value+" c:"+code;
    	finalString = finalString + " " + newString;
 	}
-	//document.getElementById("demo").innerHTML = finalString;
+	document.getElementById("demo").innerHTML = finalString;
     
 }
 
@@ -50,15 +49,25 @@ function encryptHex(content, key){
 
     var finalOutput = "";
     var wordOutput;
+    var value;
+    var q = 0;
 
     for(var loop = 0; loop < content.length; loop++){
 
       var currentWord = content[loop];
       wordOutput = "";
 
-      for (i=0; i < s.length; i += 2) {
+      value = parseInt(key.substring(q, q + 2), 16);
+      /*if(q >= key.length){
+        q = 0;
+      }
+      else{
+        q += 2;
+      }*/
 
-        code = parseInt(s.substring(i, i + 2), 16);
+      for (i = 0; i < currentWord.length; i += 2) {
+
+        var code = parseInt(currentWord.substring(i, i + 2), 16);
         wordOutput += String.fromCharCode(code ^ value);
 
       }
@@ -67,7 +76,7 @@ function encryptHex(content, key){
   
     }
 
-    document.getElementById("demo").innerHTML = finalOutput;
+    document.getElementById("demo").innerHTML = "key:"+key+" : "+finalOutput;
 
 }
 
@@ -94,5 +103,5 @@ function encodeInput(){
   var userContent = document.getElementById("ans1").value;
   var userPass = document.getElementById("userPass").value;
   var splitArray = userContent.split(" ");
-  decryptHex(splitArray, userPass);
+  encryptHex(splitArray, userPass);
 }
