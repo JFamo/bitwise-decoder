@@ -3,21 +3,23 @@
 
 <body> 
 
-<h1>Bitwise XOR Decryptor</h1>
+<h1 id="title">Bitwise XOR Decryptor</h1>
 <h2>by J.Famous</h2>
 
-<button class="operation">Encrypt</button>
-<button class="operation">Decrypt</button>
+<button class="operation" onclick="toEncrypt();">Encrypt</button>
+<button class="operation" onclick="toDecrypt();">Decrypt</button>
+
+<br><br>
 
 <button class="accordion">About</button>
-<div class="panel">
+<div class="panel" id="aboutDiv">
   <p>This program is the intellectual property of J.Famous 2017.<br>
      It will decode a string encoded using the Bitwise XOR operator.<br>
      Some variables in this program are assumed, but can be replaced as necessary.</p>
 </div>
 
 <button class="accordion">How to Use</button>
-<div class="panel">
+<div class="panel" id="useDiv">
   <p>You can input either text directly from the code of a file,<br>
      Or manually input elements, seperated by spaces.<br>
      Be sure that they are seperated by spaces, and not seperated by new lines!<br>
