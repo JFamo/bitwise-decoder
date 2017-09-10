@@ -68,21 +68,3 @@ function encodeInput(){
   userContent = document.getElementById("ans1").value;
   userPass = document.getElementById("ans2").value;
 }
-
-function toDecrypt(){
-  var title = document.getElementById("title");
-  title.innerHTML = "Bitwise XOR Decryptor";
-  var aboutDiv = document.getElementById("aboutDiv");
-  aboutDiv.innerHTML = `<p>This program is the intellectual property of J.Famous 2017.<br>
-     It will decode a string encoded using the Bitwise XOR operator.<br>
-     Some variables in this program are assumed, but can be replaced as necessary.</p>`;
-}
-
-function toEncrypt(){
-  var title = document.getElementById("title");
-  title.innerHTML = "Bitwise XOR Encryptor";
-  var aboutDiv = document.getElementById("aboutDiv");
-  aboutDiv.innerHTML = `<p>This program is the intellectual property of J.Famous 2017.<br>
-     It will encode some content using the Bitwise XOR operator and a user-generated passkey.<br>
-     Some variables in this program are assumed, but can be replaced as necessary.</p>`;
-}

@@ -3,18 +3,17 @@
 
 <body> 
 
-<h1 id="title">Bitwise XOR Decryptor</h1>
+<h1 id="title">Bitwise XOR Encryptor</h1>
 <h2>by J.Famous</h2>
 
-<button class="operation" onclick="toEncrypt();">Encrypt</button>
-<button class="operation" onclick="toDecrypt();">Decrypt</button>
+<button class="operation" onclick="window.location.href='index.html'">Decrypt</button>
 
 <br><br>
 
 <button class="accordion">About</button>
 <div class="panel" id="aboutDiv">
   <p>This program is the intellectual property of J.Famous 2017.<br>
-     It will decode a string encoded using the Bitwise XOR operator.<br>
+     It will encode some content using a user-generated passkey using the Bitwise XOR operator.<br>
      Some variables in this program are assumed, but can be replaced as necessary.</p>
 </div>
 
@@ -34,6 +33,7 @@
 
 Encoded Hexidecimal Values (Seperated by Spaces):<br>
 <textarea name="ans1" id="ans1" rows="5" cols="20"></textarea><br>
+<input type="text" id="userPass" />
 
 <button type="button" onclick="breakInput()">Decode</button>
 
