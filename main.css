@@ -42,3 +42,9 @@ div.panel {
 p{
     font-family:tahoma;
 }
+
+.operation{
+    width:200px;
+    height:60px;
+    background-color:#95aaf9;
+}
