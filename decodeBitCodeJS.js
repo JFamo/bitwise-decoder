@@ -45,13 +45,16 @@ function decryptHex(pop){
     
 }
 
+//attempt to encrypt
 function encryptHex(content, key){
 
+	//vars
     var finalOutput = "";
     var wordOutput;
     var value;
     var q = 0;
 
+	//for each word
     for(var loop = 0; loop < content.length; loop++){
 
       var currentWord = content[loop];
@@ -65,6 +68,7 @@ function encryptHex(content, key){
         q += 2;
       }*/
 
+	    //for each letter
       for (i = 0; i < currentWord.length; i += 2) {
 
         var code = parseInt(currentWord.substring(i, i + 2), 2);
